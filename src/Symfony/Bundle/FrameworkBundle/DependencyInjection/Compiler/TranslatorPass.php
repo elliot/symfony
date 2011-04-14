@@ -20,13 +20,13 @@ class TranslatorPass implements CompilerPassInterface
         }
         $container->setParameter('translation.loaders', $loaders);
         
-        // Drop resources that don't have a laoder to stop an exception being thrown
+        // Drop resources that don't have a loader to stop an exception being thrown
         $uncheckedResources = array();
         
         $resources = $container->getParameter('translation.resources');
         foreach ($resources as $resource) {
             if (! in_array($resource[0], $loaders)) {
-                // The format does not ahve a registered loader
+                // The format does not have a registered loader
                 // How to handle??
             } else {
                 $checkedResources[] = $resource;
